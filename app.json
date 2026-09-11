@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "native-scaffold",
-    "slug": "native-scaffold",
+    "name": "Road Signs",
+    "slug": "svg-road-sign-generator-native-app",
+    "scheme": "roadsigns",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,6 +21,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
     }
   }
 }
