@@ -6,6 +6,7 @@ import { SIGN_TYPES, type SignMeta, type SignType } from "../../lib/types";
 import { SIGN_FIELDS, defaultsFor } from "../../lib/signFields";
 import { PALETTES } from "../../lib/palettes";
 import { SignPreview } from "../../components/SignPreview";
+import { SignActions } from "../../components/SignActions";
 import { FieldInput } from "../../components/FieldInput";
 
 function isSignType(x: string): x is SignType {
@@ -77,6 +78,7 @@ function SignBuilder({ type }: { type: SignType }) {
         ) : null}
       </View>
       {error && <Text style={styles.error}>{error}</Text>}
+      {result && <SignActions type={type} params={params} />}
 
       {fields.map((field) => (
         <FieldInput
