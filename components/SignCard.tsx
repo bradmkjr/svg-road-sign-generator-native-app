@@ -6,6 +6,8 @@ import type { SignInfo, SignMeta } from "../lib/types";
 import { defaultsFor } from "../lib/signFields";
 import { SignPreview } from "./SignPreview";
 
+const PREVIEW_HEIGHT = 100;
+
 /** A home-grid tile: fetches its own default-params preview and links into
  *  the builder for that sign type. */
 export function SignCard({ sign }: { sign: SignInfo }) {
@@ -31,7 +33,7 @@ export function SignCard({ sign }: { sign: SignInfo }) {
       <Pressable style={styles.card}>
         <View style={styles.previewWrap}>
           {result ? (
-            <SignPreview svg={result.svg} meta={result.meta} />
+            <SignPreview svg={result.svg} meta={result.meta} height={PREVIEW_HEIGHT} />
           ) : failed ? (
             <Text style={styles.errorText}>Preview unavailable</Text>
           ) : (
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
     margin: 6,
   },
   previewWrap: {
-    height: 100,
+    minHeight: PREVIEW_HEIGHT,
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 8,
